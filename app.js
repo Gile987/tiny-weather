@@ -5,22 +5,33 @@ const api = {
 
 const search = document.querySelector('.search-box');
 
-let setQuery = (e) => {
-  if (e.keyCode == 13) {
-    getResults();
-  };
+async function getResults() {
+  const query = search.value;
+  const response = await fetch(`${api.url}/forecast.json?key=${api.key}&q=${query}`);
+  const data = await response.json();
+  const weather = data.current;
+  const forecast = data.forecast.forecastday;
+  return data;
 };
 
-search.addEventListener('keypress', setQuery);
+search.addEventListener('keypress', async (e) => {
+  let data = [];
+  if (e.keyCode == 13) {
+    try {
+      if (search.value) {
+        data = await getResults();
+        console.log('dejtaaaa', data);
+        displayResults(data);
+      }else{
+        alert('Please enter a city name');
+      };
+    } catch (err) {
+      console.log('error');
+      console.log(err);
+    }
+  };
+});
 
-const getResults = () => {
-  const query = search.value;
-  fetch(`${api.url}/forecast.json?key=${api.key}&q=${query}`)
-    .then(response => response.json())
-    .then(data => {
-      const weather = data.current;
-      const forecast = data.forecast.forecastday;
-      console.log(weather);
-      console.log(forecast);
-    });
+let displayResults = (data) => {
+  console.log("display results", data);
 };
