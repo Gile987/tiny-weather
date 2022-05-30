@@ -1,0 +1,69 @@
+/* override/reset default styling */
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 55px 16px 16px;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 18px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  font-size: 22px;
+  transition: 0.18s ease-out;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #663399;
+}
+
+.search-box:focus {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.city {
+  color: #000;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.local-time {
+  color: #000;
+  font-size: 18px;
+}
+
+.temperature {
+  color: #000;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.feels {
+  color: #000;
+  font-size: 22px;
+}
