@@ -8,10 +8,14 @@
   box-sizing: border-box;
 }
 
+/* wrapper */
+
 .main-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 75vh;
+  margin: 0 auto;
 }
 
 header {
@@ -20,6 +24,9 @@ header {
   align-items: center;
   padding: 55px 16px 16px;
 }
+
+
+/* search */
 
 .search-box {
   width: 100%;
@@ -30,13 +37,16 @@ header {
   border-radius: 15px;
   font-size: 22px;
   transition: 0.18s ease-out;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #663399;
+  background-color: rgba(207, 136, 243, 0.2);
+  color: #fff;
 }
 
 .search-box:focus {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(207, 136, 243, 0.7);
 }
+
+
+/* main */
 
 main {
   display: flex;
@@ -44,6 +54,7 @@ main {
   flex: 1 1 100%;
   align-items: center;
   text-align: center;
+  background-color: rgba(246, 224, 143, 0.7);
 }
 
 .city {

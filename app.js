@@ -9,8 +9,6 @@ async function getResults() {
   const query = search.value;
   const response = await fetch(`${api.url}/forecast.json?key=${api.key}&q=${query}`);
   const data = await response.json();
-  const weather = data.current;
-  const forecast = data.forecast.forecastday;
   return data;
 };
 
@@ -33,5 +31,20 @@ search.addEventListener('keypress', async (e) => {
 });
 
 let displayResults = (data) => {
-  console.log("display results", data);
+
+  let city = document.querySelector('.city');
+  let localTime = document.querySelector('.local-time');
+  let temperature = document.querySelector('.temperature');
+  let feels = document.querySelector('.feels');
+  let condition = document.querySelector('.condition');
+  let icon = document.querySelector('.icon');
+  const iconString = data.current.condition.icon;
+  const slicedIcon = iconString.slice(2);
+
+  city.innerText = data.location.name;
+  localTime.innerText = 'Last Updated: ' + data.location.localtime;
+  temperature.innerText = 'Current Temperature: ' + data.current.temp_c + '°C' + '/' + data.current.temp_f + '°F';
+  feels.innerText = 'Feels Like: ' + data.current.feelslike_c + '°C' + '/' + data.current.feelslike_f + '°F';
+  condition.innerHTML = 'Weather Condition: ' + `<span class="condition">${data.current.condition.text}</span>`;
+  icon.innerHTML = `<img src="https://${slicedIcon}" alt="${data.current.condition.text}">`;
 };
