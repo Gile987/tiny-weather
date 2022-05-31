@@ -25,7 +25,7 @@ search.addEventListener('keypress', async (e) => {
       };
     } catch (err) {
       console.log('error');
-      console.log(err);
+      console.error(err);
     }
   };
 });
@@ -42,7 +42,7 @@ let displayResults = (data) => {
   const slicedIcon = iconString.slice(2);
 
   city.innerText = data.location.name;
-  localTime.innerText = 'Last Updated: ' + data.location.localtime;
+  localTime.innerText = 'Last Updated (' + data.location.name + ' Time): ' + data.location.localtime;
   temperature.innerText = 'Current Temperature: ' + data.current.temp_c + '°C' + '/' + data.current.temp_f + '°F';
   feels.innerText = 'Feels Like: ' + data.current.feelslike_c + '°C' + '/' + data.current.feelslike_f + '°F';
   condition.innerHTML = 'Weather Condition: ' + `<span class="condition">${data.current.condition.text}</span>`;
