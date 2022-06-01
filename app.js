@@ -6,6 +6,7 @@ const api = {
 const search = document.querySelector('.search-box');
 
 async function getResults() {
+  
   const query = search.value;
   const response = await fetch(`${api.url}/forecast.json?key=${api.key}&q=${query}`);
   const data = await response.json();
@@ -13,7 +14,7 @@ async function getResults() {
 };
 
 search.addEventListener('keypress', async (e) => {
-  let data = [];
+  
   if (e.keyCode == 13) {
     try {
       if (search.value) {
