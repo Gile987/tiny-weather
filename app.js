@@ -19,9 +19,8 @@ search.addEventListener('keypress', async (e) => {
     try {
       if (search.value) {
         data = await getResults();
-        console.log('dejtaaaa', data);
         displayResults(data);
-      }else{
+      } else {
         alert('Please enter a city name');
       };
     } catch (err) {
