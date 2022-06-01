@@ -18,10 +18,8 @@
 
 body {
   background-image: url(../img/bg.png);
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  /* background-size: cover; */
   width: 100%;
   height: 100%;
 }
@@ -32,7 +30,7 @@ body {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 60vh;
+  min-height: 70vh;
   max-width: 75vh;
   margin: 0 auto;
   font-family: Oswald, sans-serif;
@@ -76,6 +74,7 @@ main {
   align-items: center;
   text-align: center;
   background-color: rgba(234, 130, 89, 0.7);
+  border: 16px ridge rgba(70, 132, 226, 0.6);
 }
 
 .location, .current {
@@ -83,23 +82,29 @@ main {
 }
 
 .city {
-  color: #000;
-  font-size: 30px;
+  color: rgb(101, 82, 229, 0.8);
+  font-size: 4rem;
   margin-bottom: 8px;
 }
 
-.local-time {
-  color: #000;
-  font-size: 18px;
-}
-
 .temperature {
-  color: #000;
-  font-size: 30px;
+  color: rgb(255, 210, 255);
+  font-size: 2rem;
   margin-bottom: 8px;
 }
 
 .feels {
-  color: #000;
-  font-size: 22px;
+  color: rgb(255, 210, 255);
+  font-size: 2rem;
+}
+
+.condition-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.condition {
+  color: rgb(101, 82, 229, 0.8);
+  font-size: 2.4rem;
 }
